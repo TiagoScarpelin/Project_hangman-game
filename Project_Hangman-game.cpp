@@ -1,16 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
 #include <iostream>
+#include <time.h>
 
 using namespace std;
 
+string returnRandomNumber(){
 
+    string word [3] = {"Abacaxi" , "Morango", "Uva"};
 
-void menuInicial(){
+    int randomIndex = rand() % 3;
 
-    int opcao = 1;
+    return word [randomIndex];
+}
 
-    while (opcao > 0 && opcao < 3){
+void playYourself(){
+
+    string word = returnRandomNumber();
+    cout << word;
+    system("read -p 'Press Enter to continue...' var");
+}
+
+void homeMenu(){
+
+    int option = 1;
+
+    while (option > 0 && option < 3){
         
         
         system("clear");
@@ -18,13 +34,14 @@ void menuInicial(){
         cout << "\n2- About";
         cout << "\n3- Exit";
         cout << "\nChoose an option and press Enter:\n";
-        cin >> opcao;
+        cin >> option;
 
-        switch (opcao)
+        switch (option)
         {
         case 1:
             
-            cout << "Play\n";
+            playYourself();
+            
             break;
         
         case 2:
@@ -35,15 +52,18 @@ void menuInicial(){
         case 3:
 
             cout << "See you!!\n";
+            system("read -p 'Press Enter to Exit...' var");
             break;
         }
 
-        system("read -p 'Press Enter to continue...' var");
+        
     }
 }
 
 int main (){
 
-    menuInicial();
+    srand((unsigned)time(NULL));
+
+    homeMenu();
 
 }
