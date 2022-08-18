@@ -6,6 +6,21 @@
 
 using namespace std;
 
+string wordWithMask(int wordSize){
+    
+    int cont = 0;
+    string wordMask;
+    int Size = wordSize;
+
+    while(cont < Size){
+
+        wordMask += "_";
+        cont++;
+    }
+
+    return wordMask;
+}
+
 string returnRandomNumber(){
 
     string word [3] = {"Abacaxi" , "Morango", "Uva"};
@@ -18,7 +33,24 @@ string returnRandomNumber(){
 void playYourself(){
 
     string word = returnRandomNumber();
-    cout << word;
+    int WordSize = word.size();
+    string mask = wordWithMask (WordSize);
+    
+
+    int attempts = 0,remainingAttempts = 10;
+    char letter;
+
+    while((remainingAttempts - attempts) > 0){
+
+        cout << "\nWord Size: " << WordSize << " Word: " << mask << "\n";
+        cout << "You have " << remainingAttempts - attempts << " Remaining Attempts \n\n";
+
+        cout << "Type a letter:\n";
+        cin >> letter;
+
+        attempts++;
+    }
+
     system("read -p 'Press Enter to continue...' var");
 }
 
@@ -55,7 +87,6 @@ void homeMenu(){
             system("read -p 'Press Enter to Exit...' var");
             break;
         }
-
         
     }
 }
