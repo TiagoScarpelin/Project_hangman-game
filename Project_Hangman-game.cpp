@@ -97,4 +97,6 @@ int main (){
 
     homeMenu();
 
+    printf("\njamaica\n");
+
 }
