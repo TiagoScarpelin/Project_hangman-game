@@ -4,7 +4,6 @@
 #include <iostream>
 #include <time.h>
 
-
 using namespace std;
 
 string wordWithMask(int wordSize){
@@ -97,4 +96,5 @@ int main (){
     srand((unsigned)time(NULL));
 
     homeMenu();
+
 }
