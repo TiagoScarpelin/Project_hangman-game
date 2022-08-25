@@ -96,6 +96,4 @@ int main (){
     srand((unsigned)time(NULL));
 
     homeMenu();
-    printf("jamaica");
-
 }
