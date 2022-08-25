@@ -4,6 +4,7 @@
 #include <iostream>
 #include <time.h>
 
+
 using namespace std;
 
 string wordWithMask(int wordSize){
