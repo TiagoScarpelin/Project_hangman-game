@@ -23,7 +23,7 @@ string wordWithMask(int wordSize){
 
 string returnRandomNumber(){
 
-    string word [3] = {"Abacaxi" , "Morango", "Uva"};
+    string word [3] = {"abacaxi" , "morango", "uva"};
 
     int randomIndex = rand() % 3;
 
@@ -35,12 +35,13 @@ void playYourself(){
     string word = returnRandomNumber();
     int WordSize = word.size();
     string mask = wordWithMask (WordSize);
+    int cont , res;
     
 
     int attempts = 0,remainingAttempts = 10;
     char letter;
 
-    while((remainingAttempts - attempts) > 0){
+    while( word != mask && (remainingAttempts - attempts) > 0){
 
         cout << "\nWord Size: " << WordSize << " Word: " << mask << "\n";
         cout << "You have " << remainingAttempts - attempts << " Remaining Attempts \n\n";
@@ -48,7 +49,22 @@ void playYourself(){
         cout << "Type a letter:\n";
         cin >> letter;
 
+        for(cont = 0;cont < WordSize;cont++){
+
+            if(word[cont] == letter){
+                mask[cont] = word[cont];
+            }
+        }
+
         attempts++;
+    }
+
+    if(word == mask){
+        cout << "\nCongratulations, you is very good!!!!\n\n";
+        cout << "The word is: " << word << "\n\n";
+        
+    }else{
+        cout << "Oh no, try again!\n";
     }
 
     system("read -p 'Press Enter to continue...' var");
