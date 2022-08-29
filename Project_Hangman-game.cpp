@@ -90,7 +90,7 @@ void playYourself(){
                 mask = compare;
             }else{
 
-                attempts = 10;
+                attempts = remainingAttempts;
             }
             
         }
