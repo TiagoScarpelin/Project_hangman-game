@@ -96,7 +96,7 @@ void playYourself(){
         }
 
         for(cont = 0;cont < attempts;cont++){
-            if(riskyletters[cont] == letter){
+            if(riskyletters[cont] == tolower(letter)){
                 repeatedLetter = true;
             }
         }
@@ -107,11 +107,11 @@ void playYourself(){
 
         }else{
 
-           riskyletters += letter;
+           riskyletters += tolower(letter);
 
            for(cont = 0;cont < wordSize;cont++){
 
-                if(word[cont] == letter){
+                if(word[cont] == tolower(letter)){
                     mask[cont] = word[cont];
                     contador++;
                     correctLetter = true;
