@@ -46,6 +46,35 @@ string returnRandomNumber(){
 
     return word [randomIndex];
 }
+void InterfaceAbout(){
+
+    system ("clear");
+    cout <<            "Game Information\n\n";
+    cout << "---------------------------------------" << endl
+         << "|                                     |" << endl
+         << "|               ABOUT                 |" << endl
+         << "|                                     |" << endl
+         << "|          Game produced by:          |" << endl
+         << "|                                     |" << endl
+         << "|   Tiago Gimenes Scarpelin           |" << endl
+         << "|                                     |" << endl
+         << "|       Produced on the date of:      |" << endl
+         << "|                                     |" << endl
+         << "|   29/08/2022                        |" << endl
+         << "|                                     |" << endl
+         << "|         With the help of:           |" << endl
+         << "|                                     |" << endl
+         << "|    Teacher John's Course at Udemy:  |" << endl
+         << "|                                     |" << endl
+         << "|  Link:https://www.udemy.com/course/ |" << endl
+         << "|  curso-completo-de-linguagem-c-     |" << endl
+         << "|  iniciante-ao-avancado/             |" << endl
+         << "|                                     |" << endl
+         << "---------------------------------------" << endl;
+
+
+    system("read -p 'Press enter to return to home menu...' var");
+}
 
 void playYourself(){
 
@@ -196,9 +225,8 @@ void homeMenu(){
             break;
         
         case 2:
-            system ("clear");
-            cout << "Game Information\n";
-            system("read -p 'Press enter to return to home menu...' var");
+            InterfaceAbout();
+
             break;
 
         case 3:
