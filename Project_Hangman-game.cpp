@@ -46,6 +46,7 @@ string returnRandomNumber(){
 
     return word [randomIndex];
 }
+
 void InterfaceAbout(){
 
     system ("clear");
@@ -76,9 +77,19 @@ void InterfaceAbout(){
     system("read -p 'Press enter to return to home menu...' var");
 }
 
-void playYourself(){
+void play(int playYourself){
 
-    string word = returnRandomNumber();
+    string word;
+
+    if(playYourself == 1){
+
+        word = returnRandomNumber();
+    }else{  
+        
+        cout << "Type a word\n";
+        cin >> word; 
+    }
+
     int wordSize = word.size();
     string mask = wordWithMask (wordSize);
     int cont = 0;
@@ -147,7 +158,7 @@ void playYourself(){
                 }
             }
 
-            if(contador == 5 && letter != '1'){
+            if(contador == (wordSize - 2) && letter != '1'){
 
                 system("clear");
                 
@@ -206,31 +217,32 @@ void homeMenu(){
 
     int option = 1;
 
-    while (option > 0 && option < 3){
+    while (option > 0 && option < 4){
         
         
         system("clear");
         cout << "\n1- Play";
-        cout << "\n2- About";
-        cout << "\n3- Exit";
+        cout << "\n2- Multiplayer";
+        cout << "\n3- About";
+        cout << "\n4- Exit";
         cout << "\nChoose an option and press Enter:\n";
         cin >> option;
 
         switch (option)
         {
         case 1:
-            system ("clear");
-            playYourself();
-            
+            play(1);
             break;
         
         case 2:
-            InterfaceAbout();
-
+            play(2);
             break;
 
         case 3:
+            InterfaceAbout();
+            break;
 
+        case 4:
             cout << "See you!!\n";
             system("read -p 'Press Enter to Exit...' var");
             break;
