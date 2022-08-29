@@ -26,7 +26,7 @@ void displayStatus(int wordSize,string mask,int attempts,string riskyletters,str
     int cont = 0;
 
     cout << message << "\n";
-    cout << "\nWord Size: " << wordSize << " Word: " << mask << "\n";
+    cout << "\n(Word Size "<< wordSize << ") " <<" Word: " << mask << "\n";
     cout << "You have " << attempts << " Remaining Attempts \n\n";
     cout << "Risky letters: ";
 
@@ -40,7 +40,7 @@ void displayStatus(int wordSize,string mask,int attempts,string riskyletters,str
 
 string returnRandomNumber(){
 
-    string word [3] = {"abacaxi" , "morango", "uva"};
+    string word [3] = {"abacaxi" , "morango", "melancia"};
 
     int randomIndex = rand() % 3;
 
@@ -53,9 +53,12 @@ void playYourself(){
     int wordSize = word.size();
     string mask = wordWithMask (wordSize);
     int cont = 0;
+    string compare;
+    char option;
     string riskyletters;
     string message = "Welcome to the game!";
     bool repeatedLetter = false ,correctLetter = false;
+    int contador = 0;
 
     int attempts = 0,remainingAttempts = 10;
     char letter;
@@ -68,9 +71,29 @@ void playYourself(){
         repeatedLetter = false;
 
         displayStatus(wordSize,mask,remainingAttempts - attempts,riskyletters,message);
+        cout << "\n\nPress 1 to risk the word";
 
         cout << "\n\nType a letter:\n";
         cin >> letter;
+
+
+        if(letter == '1'){
+
+            system("clear");
+            message = " ";
+            displayStatus(wordSize,mask,attempts,riskyletters,message);
+            cout << "\n\nRisk your word:\n";
+            cin >> compare;
+
+            if(compare == word){
+
+                mask = compare;
+            }else{
+
+                attempts = 10;
+            }
+            
+        }
 
         for(cont = 0;cont < attempts;cont++){
             if(riskyletters[cont] == letter){
@@ -90,8 +113,38 @@ void playYourself(){
 
                 if(word[cont] == letter){
                     mask[cont] = word[cont];
+                    contador++;
                     correctLetter = true;
                 }
+            }
+
+            if(contador == 5 && letter != '1'){
+
+                system("clear");
+                
+                cout << "Almost there!!\n\n";
+                cout << "Do you want to risk the word?\n\n";
+                cout << "Type y for yes and n for no\n";
+
+                cin >> option;
+
+                if(option == 'y'){
+
+                    system("clear");
+                    message = " ";
+                    displayStatus(wordSize,mask,attempts,riskyletters,message);
+                    cout << "\n\nRisk your word:\n";
+                    cin >> compare;
+
+                    if(compare == word){
+
+                        mask = compare;
+                    }else{
+
+                        attempts = 10;
+                    }
+                }
+                
             }
 
             if(correctLetter == true){
@@ -107,12 +160,14 @@ void playYourself(){
 
     if(word == mask){
         system("clear");
+        cout << "You Win!! (^-^)\n";
         cout << "\nCongratulations, you is very good!!!!\n\n";
         cout << "The word is: " << word << "\n\n";
         
     }else{
         system("clear");
-        cout << "Oh no, try again!\n";
+        cout << "You Lose! (;-;)\n";
+        cout << "\nOh no, try again!\n\n";
     }
     
     system("read -p 'Press enter to return to home menu...' var");
